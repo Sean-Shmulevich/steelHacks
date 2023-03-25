@@ -12,3 +12,5 @@ Goals:
 A user creates an account and uses the application to browse local cultural home cooks and small businesses.
 Home cooks and small businesses contain a menu of available meals or individual ingredients/produce.
 A user places an order of a meal or produce, or a weekly subscription to a meal or produce at a business.
+
+https://sean-shmulevich.github.io/steelHacks/
