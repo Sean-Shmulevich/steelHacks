@@ -25,3 +25,6 @@ food17 = Food("Taco Salad", 11.99, "Taco meat, lettuce, tomato, and cheese in cr
 food18 = Food("Beet Salad", 9.99, "Mixed greens, roasted beets, and goat cheese with balsamic dressing")
 food19 = Food("Miso Soup", 3.99, "Soybean soup with tofu and seaweed")
 food20 = Food("Chili Con Carne", 12.99, "Spicy beef chili with beans and cornbread")
+
+food_list = [food1, food2, food3, food4, food5, food6, food7, food8, food9, food10, 
+             food11, food12, food13, food14, food15, food16, food17, food18, food19, food20]

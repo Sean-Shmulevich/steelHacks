@@ -1,8 +1,11 @@
-class buisness:
-    def __init__(self, name, category, rating, avalibility, bio):
+from Review import Review
+
+class business:
+    def __init__(self, name, category, reviews, avgStars, avalibility, location, bio):
         self._name = name #buisness name
         self._category = category #kind of food or buisness
-        self._rating = rating
+        self._reviews = reviews#reviewli
+        self._avgStars = avgStars
         self._avalibility = avalibility #(est pickup time 17min)
         self._location = location #address
         self._bio = bio
@@ -20,11 +23,16 @@ class buisness:
     def set_category(self, category):
         self._category = category
 
-    def get__rating(self):
-        return self._rating
+    def get_reviews(self):
+        return self._reviews
 
-    def set_rating(self, rating):
-        self._rating = rating
+    def set_reviews(self, reviews):
+        self._reviews = reviews
+
+    def get_avg_stars(self, reviews):
+        stars = [review.get_stars() for review in reviews]
+        avg_stars = sum(stars) / len(stars)
+        return avg_stars
 
     def get__avalibility(self):
         return self._avalibility
