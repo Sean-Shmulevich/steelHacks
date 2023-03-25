@@ -9,7 +9,7 @@
 	<header class="bg-white bg-cover bg-center">
 		<div class="container mx-auto px-4">
 			<div class="flex justify-between items-center py-4">
-				<a href="#" class="text-lg font-bold">CookBook</a>
+				<a href="/" class="text-lg font-bold">CookBook</a>
 
 				<div class="flex items-center">
 					<a href="#" class="text-gray-500 hover:text-gray-900 mx-4">Sign Up</a>
@@ -26,6 +26,17 @@
 			<div class="max-w-screen-lg mx-auto px-6 py-16">
 				<h1 class="text-3xl font-bold mb-8">Menu</h1>
 				<ul>
+					<ul>
+						{#each menuItems as menuItem}
+							<li class="mb-8">
+								<div class="flex items-center justify-between">
+									<h2 class="text-lg font-medium">{menuItem.name}</h2>
+									<p class="text-lg font-medium">${menuItem.price}</p>
+								</div>
+								<p class="text-gray-500 mt-2">{menuItem.description}</p>
+							</li>
+						{/each}
+					</ul>
 					<li class="mb-8">
 						<div class="flex items-center justify-between">
 							<h2 class="text-lg font-medium">Roast Chicken</h2>
@@ -103,7 +114,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" style="margin-top:1000px">
 			<!-- First review -->
 			<div class="bg-white shadow-lg rounded-lg px-4 py-6">
 				<p class="text-gray-700 font-medium mb-4">
