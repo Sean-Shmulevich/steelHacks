@@ -34,8 +34,8 @@ async def root1(b_id: int):
     #return review_list
     #return food_list
 
-@app.get("/bus/orders/{num}") #orders page
-async def root1(num):
+@app.get("/bus/orders/") #orders page
+async def root1():
     return orders_list
 
 
