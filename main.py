@@ -1,15 +1,17 @@
 from fastapi import FastAPI
 
-import user
+from user import user
 
 app = FastAPI()
 
-p = user("c", "h", "c")
+p = user()#("claire", "cah365@pitt.edu", "food")
 
 @app.get("/")
 async def root():
-    print(p.get_name(p))
-    return {"message": "Hello World"}
+    print("hello!", p.get_name())
+    name = p.get_name()
+
+    return {"message": f"Hello World {name}"}
 
 
 # class pastOrders(BaseModel):

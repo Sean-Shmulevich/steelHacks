@@ -1,6 +1,6 @@
 
-class User:
-    def __init__(self, name, email, subscription):
+class user:
+    def __init__(self, name, email, subscription, cardNum):
         self._name = name
         self._email = email
         self._subscription = subscription
@@ -23,3 +23,8 @@ class User:
     def set_subscription(self, subscription):
         self._subscription = subscription
 
+    def get_cardNum(self):
+        return self._cardNum
+
+    def set_cardNum(self, cardNum):
+        self._cardNum = cardNum
