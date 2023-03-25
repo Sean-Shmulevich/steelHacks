@@ -2,11 +2,9 @@
 Hackathon Project 2023
 CookBook
 
-Shmule likes anal
 Our Vision:
 To make 'authentic' underrepresented food accessible
 
-Hello This is a github test
 Goals:
     1) Promote underrepresented cultural food and businesses
     2) Increase accessibility of 'authentic' cultural foods
