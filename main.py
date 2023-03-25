@@ -14,9 +14,6 @@ b = business("Grandma's edibles", "Dessert", review_list, 0, "15min", "pitt", "b
 b.avg_stars = b.get_avg_stars(review_list)
 
 
-#scores = [review.score for review in review_list]
-#average_score = sum(scores) / len(scores)
-#print("Average score: ", average_score)
 
 
 
@@ -24,8 +21,10 @@ b.avg_stars = b.get_avg_stars(review_list)
 async def root():
     print("hello!", p.get_name())
     name = p.get_name()
-    return b.avg_stars
-    return food_list
+    #return b.avg_stars
+    return b.get_reviews()
+    #return review_list
+    #return food_list
 
 
 
