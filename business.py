@@ -1,7 +1,7 @@
 from Review import Review
 
 class business:
-    def __init__(self, name, category, reviews, avgStars, avalibility, location, bio):
+    def __init__(self, name, category, reviews, avgStars, avalibility, location, bio, img_url):
         self._name = name #buisness name
         self._category = category #kind of food or buisness
         self._reviews = reviews#reviewli
@@ -40,8 +40,14 @@ class business:
     def set_avalibility(self, avalibility):
         self._avalibility = avalibility
 
-    def get__bio(self):
+    def get_bio(self):
         return self._bio
 
     def set_bio(self, bio):
         self._bio = bio
+
+    def get_img_url(self):
+        return self.img_url
+
+    def set_img_url(self, img_url):
+        self._img_url = img_url
