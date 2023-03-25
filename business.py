@@ -9,6 +9,7 @@ class business:
         self._avalibility = avalibility #(est pickup time 17min)
         self._location = location #address
         self._bio = bio
+        self._img_url = img_url
         
     
     def get_name(self):

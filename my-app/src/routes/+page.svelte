@@ -1,5 +1,14 @@
 <script lang="ts">
+	let menuItems = [];
 	// import Business from './Business.svelte';
+
+	const fetchData = async () => {
+		const response = await fetch('http://0.0.0.0:8000/Home/');
+		const data = await response.json();
+		menuItems = data;
+	};
+
+	fetchData();
 </script>
 
 <head>
@@ -17,8 +26,8 @@
 				<a href="#" class="text-lg font-bold">CookBook</a>
 
 				<div class="flex items-center">
-					<a href="#" class="text-gray-500 hover:text-gray-900 mx-4">Sign Up</a>
-					<a href="#" class="text-gray-500 hover:text-gray-900 mx-4">Sign In</a>
+					<a href="#" class="text-gray-500 hover:text-gray-900 mx-4">View Orders</a>
+					<a href="#" class="text-gray-500 hover:text-gray-900 mx-4">Account</a>
 				</div>
 			</div>
 		</div>
@@ -42,21 +51,29 @@
 
 	<h1 class="text-black text-center text-4xl font-bold mb-4 mt-5">Recommended</h1>
 	<div class="flex bg-white overflow-x-auto space-x-20 pb-1 mx-10">
-		<a href="/cooks">
-			<div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4">
-				<img
-					src="https://via.placeholder.com/256x128"
-					alt="Business Logo"
-					class="w-full h-32 object-cover rounded-md mb-4"
-				/>
-				<h3 class="text-lg font-medium mb-2">Business Name</h3>
-				<p class="text-gray-700">Business Description</p>
-				<button
-					class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md"
-					>Order Now</button
-				>
-			</div>
-		</a>
+		{#each menuItems.slice(0, 5) as menuItem}
+			<li class="mb-8">
+				<a href="/cooks">
+					<div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4">
+						<img
+							src={menuItem._img_url}
+							alt="Business Logo"
+							class="w-full h-32 object-cover rounded-md mb-4"
+						/>
+						<h3 class="text-lg font-medium mb-2">{menuItem._name}</h3>
+						<p class="text-gray-700">
+							{menuItem._bio}
+							<button
+								class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md"
+							>
+								Order Now
+							</button>
+						</p>
+					</div>
+				</a>
+			</li>
+		{/each}
+
 		<div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4">
 			<img
 				src="https://via.placeholder.com/256x128"
@@ -141,96 +158,28 @@
 	<h1 class="text-black text-center text-4xl font-bold mb-4 mt-5">Produce</h1>
 
 	<div class="flex bg-white overflow-x-auto space-x-20 pb-1 mx-10">
-		<div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4">
-			<img
-				src="https://via.placeholder.com/256x128"
-				alt="Business Logo"
-				class="w-full h-32 object-cover rounded-md mb-4"
-			/>
-			<h3 class="text-lg font-medium mb-2">Business Name</h3>
-			<p class="text-gray-700">Business Description</p>
-			<button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md"
-				>Order Now</button
-			>
-		</div>
-
-		<div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4">
-			<img
-				src="https://via.placeholder.com/256x128"
-				alt="Business Logo"
-				class="w-full h-32 object-cover rounded-md mb-4"
-			/>
-			<h3 class="text-lg font-medium mb-2">Business Name</h3>
-			<p class="text-gray-700">Business Description</p>
-			<button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md"
-				>Order Now</button
-			>
-		</div>
-
-		<div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4">
-			<img
-				src="https://via.placeholder.com/256x128"
-				alt="Business Logo"
-				class="w-full h-32 object-cover rounded-md mb-4"
-			/>
-			<h3 class="text-lg font-medium mb-2">Business Name</h3>
-			<p class="text-gray-700">Business Description</p>
-			<button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md"
-				>Order Now</button
-			>
-		</div>
-
-		<div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4">
-			<img
-				src="https://via.placeholder.com/256x128"
-				alt="Business Logo"
-				class="w-full h-32 object-cover rounded-md mb-4"
-			/>
-			<h3 class="text-lg font-medium mb-2">Business Name</h3>
-			<p class="text-gray-700">Business Description</p>
-			<button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md"
-				>Order Now</button
-			>
-		</div>
-
-		<div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4">
-			<img
-				src="https://via.placeholder.com/256x128"
-				alt="Business Logo"
-				class="w-full h-32 object-cover rounded-md mb-4"
-			/>
-			<h3 class="text-lg font-medium mb-2">Business Name</h3>
-			<p class="text-gray-700">Business Description</p>
-			<button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md"
-				>Order Now</button
-			>
-		</div>
-
-		<div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4">
-			<img
-				src="https://via.placeholder.com/256x128"
-				alt="Business Logo"
-				class="w-full h-32 object-cover rounded-md mb-4"
-			/>
-			<h3 class="text-lg font-medium mb-2">Business Name</h3>
-			<p class="text-gray-700">Business Description</p>
-			<button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md"
-				>Order Now</button
-			>
-		</div>
-
-		<div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4">
-			<img
-				src="https://via.placeholder.com/256x128"
-				alt="Business Logo"
-				class="w-full h-32 object-cover rounded-md mb-4"
-			/>
-			<h3 class="text-lg font-medium mb-2">Business Name</h3>
-			<p class="text-gray-700">Business Description</p>
-			<button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md"
-				>Order Now</button
-			>
-		</div>
+		{#each menuItems.slice(5, 15) as menuItem}
+			<li class="mb-8">
+				<a href="/cooks">
+					<div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4">
+						<img
+							src={menuItem._img_url}
+							alt="Business Logo"
+							class="w-full h-32 object-cover rounded-md mb-4"
+						/>
+						<h3 class="text-lg font-medium mb-2">{menuItem._name}</h3>
+						<p class="text-gray-700">
+							{menuItem._bio}
+							<button
+								class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md"
+							>
+								Order Now
+							</button>
+						</p>
+					</div>
+				</a>
+			</li>
+		{/each}
 
 		<!-- Add more businesses here... -->
 	</div>
@@ -238,96 +187,28 @@
 	<h1 class="text-black text-center text-4xl font-bold mb-4 mt-5">Home Cooks</h1>
 
 	<div class="flex bg-white overflow-x-auto space-x-20 pb-20 mx-10">
-		<div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4">
-			<img
-				src="https://via.placeholder.com/256x128"
-				alt="Business Logo"
-				class="w-full h-32 object-cover rounded-md mb-4"
-			/>
-			<h3 class="text-lg font-medium mb-2">Business Name</h3>
-			<p class="text-gray-700">Business Description</p>
-			<button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md"
-				>Order Now</button
-			>
-		</div>
-
-		<div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4">
-			<img
-				src="https://via.placeholder.com/256x128"
-				alt="Business Logo"
-				class="w-full h-32 object-cover rounded-md mb-4"
-			/>
-			<h3 class="text-lg font-medium mb-2">Business Name</h3>
-			<p class="text-gray-700">Business Description</p>
-			<button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md"
-				>Order Now</button
-			>
-		</div>
-
-		<div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4">
-			<img
-				src="https://via.placeholder.com/256x128"
-				alt="Business Logo"
-				class="w-full h-32 object-cover rounded-md mb-4"
-			/>
-			<h3 class="text-lg font-medium mb-2">Business Name</h3>
-			<p class="text-gray-700">Business Description</p>
-			<button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md"
-				>Order Now</button
-			>
-		</div>
-
-		<div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4">
-			<img
-				src="https://via.placeholder.com/256x128"
-				alt="Business Logo"
-				class="w-full h-32 object-cover rounded-md mb-4"
-			/>
-			<h3 class="text-lg font-medium mb-2">Business Name</h3>
-			<p class="text-gray-700">Business Description</p>
-			<button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md"
-				>Order Now</button
-			>
-		</div>
-
-		<div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4">
-			<img
-				src="https://via.placeholder.com/256x128"
-				alt="Business Logo"
-				class="w-full h-32 object-cover rounded-md mb-4"
-			/>
-			<h3 class="text-lg font-medium mb-2">Business Name</h3>
-			<p class="text-gray-700">Business Description</p>
-			<button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md"
-				>Order Now</button
-			>
-		</div>
-
-		<div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4">
-			<img
-				src="https://via.placeholder.com/256x128"
-				alt="Business Logo"
-				class="w-full h-32 object-cover rounded-md mb-4"
-			/>
-			<h3 class="text-lg font-medium mb-2">Business Name</h3>
-			<p class="text-gray-700">Business Description</p>
-			<button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md"
-				>Order Now</button
-			>
-		</div>
-
-		<div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4">
-			<img
-				src="https://via.placeholder.com/256x128"
-				alt="Business Logo"
-				class="w-full h-32 object-cover rounded-md mb-4"
-			/>
-			<h3 class="text-lg font-medium mb-2">Business Name</h3>
-			<p class="text-gray-700">Business Description</p>
-			<button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md"
-				>Order Now</button
-			>
-		</div>
+		{#each menuItems.slice(15, 25) as menuItem}
+			<li class="mb-8">
+				<a href="/cooks">
+					<div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md p-4">
+						<img
+							src={menuItem._img_url}
+							alt="Business Logo"
+							class="w-full h-32 object-cover rounded-md mb-4"
+						/>
+						<h3 class="text-lg font-medium mb-2">{menuItem._name}</h3>
+						<p class="text-gray-700">
+							{menuItem._bio}
+							<button
+								class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md"
+							>
+								Order Now
+							</button>
+						</p>
+					</div>
+				</a>
+			</li>
+		{/each}
 
 		<!-- Add more businesses here... -->
 	</div>
