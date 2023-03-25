@@ -6,6 +6,7 @@ class buisness:
         self._avalibility = avalibility #(est pickup time 17min)
         self._location = location #address
         self._bio = bio
+        
     
     def get_name(self):
         return self._name

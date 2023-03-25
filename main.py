@@ -11,6 +11,8 @@ async def root():
     print("hello!", p.get_name())
     name = p.get_name()
 
+    return menu
+
     return {"message": f"Hello World {name}"}
 
 
