@@ -1,9 +1,20 @@
 from fastapi import FastAPI
 from user import user
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+# Add CORS middleware to allow all origins
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 p = user("claire", "cah365@pitt.edu", "food", "6969")
+
 
 from Food import food_list
 from business import business
